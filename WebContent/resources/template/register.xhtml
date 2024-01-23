@@ -64,8 +64,9 @@
 			<p></p>
 
 			<h:form>
+			<!-- #{userBean.getUsers()} -->
 				<h4>Liste des participants inscrits</h4>
-				<h:dataTable value="#{userBean.getUsers()}" var="o"
+				<h:dataTable value="" var="o"
 					styleClass="order-table" headerClass="order-table-header"
 					rowClasses="order-table-odd-row, order-table-even-row">
 					<h:column>
