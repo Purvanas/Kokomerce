@@ -37,6 +37,7 @@ public class Commande {
 		this.adresseLivraison = adresseLivraison;
 		this.cartePaiementDefaut = cartePaiementDefaut;
 		this.utilisateur = utilisateur;
+		//xcvcxv
 	}
 
 
