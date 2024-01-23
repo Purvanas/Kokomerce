@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Un formulaire d'inscription</title>
+<h:outputStylesheet name="common-style.css" library="css" />
+</head>
+<body>
+	<f:view>
+		<h:head>
+			<title>Un formulaire d'inscription</title>
+		</h:head>
+		<h:body>
+			<h1>
+				Formulaire d'inscription à l<a
+					href="https://www.ensitech.eu/candidatez/candidatez-sur-Le-campus-de-cergy/">Ecole
+					ENSITECH Cergy</a>
+			</h1>
+			<h:form>
+				<h:panelGrid id="panelFieldsUser" columns="3" cellpadding="8"
+					cellspacing="2">
+					<h:outputText value="Nom :" />
+					<h:inputText id="nom" size="26" required="true"
+						value="#{userBean.nom}" requiredMessage="Le nom est obligatoire !" />
+					<h:message for="nom" style="color:red" />
+
+					<h:outputText value="Prénom :" />
+					<h:inputText id="prenom" size="20" required="true"
+						value="#{userBean.prenom}"
+						requiredMessage="Le prénom est obligatoire !" />
+					<h:message for="prenom" style="color:red" />
+
+					<h:outputText value="Mot de passe :" />
+					<h:inputText id="password" size="20" required="true"
+						value="#{userBean.password}"
+						requiredMessage="Le mot de passe est obligatoire !" />
+					<h:message for="password" style="color:red" />
+
+					<h:outputText value="Date de naissance :" />
+					<h:inputText id="dateNaissance" size="20" required="true"
+						value="#{userBean.dateNaissance}"
+						requiredMessage="La date de naissance est obligatoire !" />
+					<h:message for="dateNaissance" style="color:red" />
+
+					<h:outputText value="Email :" />
+					<h:inputText id="email" size="28" required="true"
+						value="#{userBean.email}"
+						requiredMessage="L'email est obligatoire !">
+						<f:validateRegex
+							pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+							validatorMessage="L'adresse email n'est pas conforme" />
+					</h:inputText>
+					<h:message for="email" style="color:red" />
+				</h:panelGrid>
+				<h:commandButton id="btnInscription" value="Inscription"
+					action="#{userBean.addAction()}" />
+			</h:form>
+
+			<p></p>
+
+			<h:form>
+				<h4>Liste des participants inscrits</h4>
+				<h:dataTable value="#{userBean.getUsers()}" var="o"
+					styleClass="order-table" headerClass="order-table-header"
+					rowClasses="order-table-odd-row, order-table-even-row">
+					<h:column>
+						<f:facet name="header">Prénom</f:facet>
+						<h:outputText value="#{o.prenom}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Nom</f:facet>
+						<h:outputText value="#{o.nom}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Email</f:facet>
+						<h:outputText value="#{o.email}" />
+					</h:column>
+					<!-- 					<h:column> -->
+					<!-- 						<f:facet name="header">Password</f:facet> -->
+					<!-- 						<h:outputText value="#{o.password}" /> -->
+					<!-- 					</h:column> -->
+					<h:column>
+						<f:facet name="header">Date de Naissance</f:facet>
+						<h:outputText value="#{o.dateNaissance}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Action</f:facet>
+						<h:commandButton value="Supprimer"
+							action="#{userBean.deleteAction(o)}"></h:commandButton>
+					</h:column>
+				</h:dataTable>
+			</h:form>
+		</h:body>
+	</f:view>
+</body>
+</html>

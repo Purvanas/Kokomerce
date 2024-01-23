@@ -1,0 +1,55 @@
+@charset "ISO-8859-1";
+
+#page {
+	width: 800px;
+	margin: 0 auto;
+}
+
+#header {
+	width: 100%;
+	height: 250px;
+	border: 1px solid #000;
+	margin-bottom: 16px;
+}
+
+#content {
+	width: 100%;
+	height: 250px;
+	margin-right: 16px;
+	margin-bottom: 16px;
+	border: 1px solid #000;
+}
+
+#footer {
+	width: 100%;
+	height: 100px;
+	border: 1px solid #000;
+}
+
+
+.order-table {
+	border-collapse: collapse;
+}
+
+.order-table-header {
+    text-align: center;
+    background: none repeat scroll 0 0 #E5E5E5;
+    border-bottom: 1px solid #BBBBBB;
+    padding: 16px;
+}
+
+.order-table-odd-row {
+    text-align: center;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-top: 1px solid #BBBBBB;
+}
+
+.order-table-even-row {
+    text-align: center;
+    background: none repeat scroll 0 0 #F9F9F9;
+    border-top: 1px solid #BBBBBB;
+}
+
+.order-table-column {
+    background: none repeat scroll 0 0 #F9F9F9;
+}
